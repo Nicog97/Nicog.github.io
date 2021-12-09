@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <style type="text/css"> body {
+        background-color: lightyellow;
+        background-image: url(templates/logo.jpg);
+        background-size:cover;
+
+        width: 500px;
+        margin: 0 auto;
+        padding: 50px;
+    }
+
+    div.elem-group {
+        margin: 20px 0;
+    }
+
+    div.elem-group.inlined {
+        width: 49%;
+        display: inline-block;
+        float: left;
+        margin-left: 1%;
+    }
+
+    label {
+        display: block;
+        font-family: 'Nanum Gothic';
+        padding-bottom: 10px;
+        font-size: 1.25em;
+    }
+
+    input, select, textarea {
+        border-radius: 2px;
+        border: 2px solid #777;
+        box-sizing: border-box;
+        font-size: 1.25em;
+        font-family: 'Nanum Gothic';
+        width: 100%;
+        padding: 10px;
+    }
+
+    div.elem-group.inlined input {
+        width: 95%;
+        display: inline-block;
+    }
+
+    textarea {
+        height: 250px;
+    }
+
+    hr {
+        border: 1px dotted #ccc;
+    }
+
+    button {
+        height: 50px;
+        background: coral;
+        border: black;
+        color: white;
+        font-size: 1.25em;
+        font-family: 'Nanum Gothic';
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    label {
+        cursor: pointer;
+    }
+
+
+
+    </style>
+</head>
+<body>
+<h1 th:text="${error_message?.message}"></h1>
+<form id='login-form' action="/api/v1/auth/next" method='post'>
+
+    <h1>Inserisci nome, cognome e numero di telefono</h1>
+
+    <label> Nome: <input type="text" name="name" placeholder="Nome" required></label>
+    <br>
+    <label>Cognome:<input type="text" name="surname" placeholder="Cognome" required></label>
+    <br>
+    <label>Numero di telefono: <input type="text" name="telNumber" placeholder="+39" pattern = [0-9]{10}$ required > </label>
+    <br>
+    <h3>Seleziona data</h3>
+    <input type="date" name="date" required>
+    <br>
+    <button type='submit'>Conferma</button>
+    <br>
+
+</form>
+
+
+
+</body>
+</html>
